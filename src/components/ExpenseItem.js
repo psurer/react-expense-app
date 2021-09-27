@@ -3,17 +3,19 @@ function ExpenseItem() {
   // using builtin date consturctor that comes with JS 
   // here we create dummy data
   const expenseDate = new Date(2021, 9, 28);
-  const expenseTitle = 'rent';
+  const expenseTitle = 'travel';
   const expenseAmount = 3000.00;
 
   return (
     //we use className because class is a reserved word in JS 
     // here we replace hardcoded data with opening and closing curly braces
+    // built in method .toISOString is avail on all date objects to output as string
     <div className="expense-item">
-      <div>28th, September 2021</div>
+    
+      <div>{expenseDate.toISOString}</div>
       <div className="expense-item__description">
         <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">$3000.00</div>
+        <div className="expense-item__price">{expenseAmount}</div>
       </div>
       </div>
   );
