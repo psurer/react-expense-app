@@ -1,21 +1,27 @@
 import './ExpenseItem.css';
-function ExpenseItem() {
+//here we say that props, is the object that holds the values we get for
+// the attributes on our custom element
+// we get key - value pairs that is passed in by react automatically
+function ExpenseItem(props) {
   // using builtin date consturctor that comes with JS 
   // here we create dummy data
-  const expenseDate = new Date(2021, 9, 28);
-  const expenseTitle = 'travel';
-  const expenseAmount = 3000.00;
+  const month  = props.date.toLocaleString('en-US', {month: 'long'});
+  const day = props.date.toLocaleString('en-US', { day: '2-digit'});
+  const year = props.date.getFullYear();
 
   return (
     //we use className because class is a reserved word in JS 
     // here we replace hardcoded data with opening and closing curly braces
     // built in method .toISOString is avail on all date objects to output as string
     <div className="expense-item">
-    
-      <div>{expenseDate.toISOString}</div>
+      <div>
+        <div>{day}</div>
+        <div>{month}</div>
+        <div>{year}</div>
+      </div>
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">{expenseAmount}</div>
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">{props.amount}</div>
       </div>
       </div>
   );
