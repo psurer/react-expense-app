@@ -1,5 +1,5 @@
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+// import Card from './Card';
 import './ExpenseItem.css';
 
 //here we say that props, is the object that holds the values we get for
@@ -11,13 +11,13 @@ function ExpenseItem(props) {
     //we use className because class is a reserved word in JS 
     // here we replace hardcoded data with opening and closing curly braces
     // built in method .toISOString is avail on all date objects to output as string
-    <Card className='expense-item'>
+    <div className='expense-item'>
       <ExpenseDate date={props.date}/>
       <div className='expense-item__description'>
         <h2>{props.title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
       </div>
-      </Card>
+      </div>
   );
 }
   //components are functions that return HTML code
