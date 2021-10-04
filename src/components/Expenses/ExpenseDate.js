@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './ExpenseDate.css';
 
 // components in react are function with extra twist of the JSX code

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './Card.css';
 // this will act as a shell for our expenses or expense item content
 function Card(props) {
