@@ -1,7 +1,9 @@
+import React from 'react';
 // import ExpenseDate from './components/ExpenseDate';
 import Expenses from './components/Expenses/Expenses';
-
-function App() {
+// here we create a new const and the value we assign to the const is an arrow funtion
+// () this is for the list of parameters, which we are leaving empty
+const App = () => {
   const expenses = [
     { 
       id: 'e1',

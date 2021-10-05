@@ -8,7 +8,7 @@ import './ExpenseItem.css';
 //here we say that props, is the object that holds the values we get for
 // the attributes on our custom element
 // we get key - value pairs that is passed in by react automatically
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   // using builtin date consturctor that comes with JS 
   return (
     //we use className because class is a reserved word in JS 
