@@ -7,6 +7,7 @@ import './ExpenseItem.css';
 //here we say that props, is the object that holds the values we get for
 // the attributes on our custom element
 // we get key - value pairs that is passed in by react automatically
+// this is executed when the updated title is fetched from react which manages the state for us
 const ExpenseItem = (props) => {
   // function clickHandler() {}
  const [title, setTitle] = useState(props.title);

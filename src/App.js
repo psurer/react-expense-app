@@ -1,5 +1,5 @@
 import React from 'react';
-// import ExpenseDate from './components/ExpenseDate';
+import NewExpense from './components/NewExpenses/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 // here we create a new const and the value we assign to the const is an arrow funtion
 // () this is for the list of parameters, which we are leaving empty
@@ -33,8 +33,7 @@ const App = () => {
 
   return (
    <div>
-     <h2>Let's Get Started!</h2>
-     
+     <NewExpense/>
      <Expenses items={expenses} /> 
    </div>
   );
