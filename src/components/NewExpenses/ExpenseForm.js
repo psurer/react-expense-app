@@ -11,13 +11,23 @@ const titleChangeHandler = (event) => {
 const amountChangeHandler = event => {
     setEnteredAmount(event.target.value);
 };
-
 const dateChangeHandler = event => {
     setEnteredDate(event.target.value);
+
+const submitHandler = (event) => {
+    event.preventDefault();
+
+     const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+            // here we set to new date and parse the date 
+            // string and convert it into a date object
+        date: new Date (enteredDate)
+    };
 };
 
     return (
-    <form> 
+    <form onSubmit={submitHandler}> 
         <div className='new-expense__controls'>
             <div className='new-expense__control'>
                 <label>Title</label>
