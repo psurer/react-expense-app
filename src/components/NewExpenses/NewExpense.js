@@ -3,21 +3,21 @@ import './NewExpense.css'
 import ExpenseForm from './ExpenseForm';
 // here we render form where user can enter expense data
 
-const NewExpense = () => {
+const NewExpense = (props) => {
 // here we use the ... spread operator to pull out all the key: value pairs
 // so we can add them to this object
 // now we use a new id: Math.random, and convert it to a string
-    const onSaveExpenseDataHanlder = (enteredExpenseData) => {
+    const saveExpenseDataHanlder = (enteredExpenseData) => {
         const expenseData = {
             ...enteredExpenseData,
             id: Math.random().toString()
         };
-        console.log(expenseData);
+        props.onAddExpense(expenseData);
     };
 
     return <div className='new-expense'>
-        <ExpenseForm onSaveExpenseData={onSaveExpenseDataHanlder} />
-        
+        <ExpenseForm onSaveExpenseData={saveExpenseDataHanlder} />
+
     </div>
 }
 
