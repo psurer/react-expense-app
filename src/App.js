@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NewExpense from './components/NewExpenses/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 // here we create a new const and the value we assign to the const is an arrow funtion
 // () this is for the list of parameters, which we are leaving empty
-
-const App = () => {
-  const expenses = [
+// here we Initialize our state with some dummy data
+const DUMMY_EXPENSES = [
     { 
       id: 'e1',
       title: "rent",
@@ -13,7 +12,7 @@ const App = () => {
       date: new Date(2021, 1, 1),
     },
     {
-      id: 'e2',
+      id: 'e2', 
       title: "travel",
       amount: 5000,
       date: new Date(2021, 3, 11),
@@ -31,10 +30,16 @@ const App = () => {
       date: new Date(2021, 1, 16),
     },
   ];
+// this function is triggered whenever a new expense is added
+// here we receive the   expesne as a parameter 
+const App = () => {
+  // here we do some destructuring / adding expenses and setExpenses
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = expense => {
-    console.log('In App.js');
-    console.log(expense);
+    setExpenses(prevExpenses => {
+      return [expense, ...prevExpenses];
+    });
   };
 
   return (
