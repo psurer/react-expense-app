@@ -12,6 +12,11 @@ const Expenses = (props) => {
     setFilteredYear(selectedYear);
   };
 
+  // here we return a new array with filter, origional array isnt touched this stops us from losing data
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.dategetFullYear().toString() === filteredYear;
+  }); 
+
   return (
     <div>
       <Card className="expenses">
@@ -19,9 +24,9 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {props.items.map((expense) => (
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
-          key={expense.id}
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
