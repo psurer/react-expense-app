@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
-import "./Expenses.css";
+import ExpensesList from './ExpensesList';
 import ExpensesFilter from "./ExpensesFilter";
+import "./Expenses.css";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2021");
@@ -12,10 +12,9 @@ const Expenses = (props) => {
     setFilteredYear(selectedYear);
   };
 
-  // here we return a new array with filter, origional array isnt touched this stops us from losing data
   const filteredExpenses = props.items.filter(expense => {
-    return expense.dategetFullYear().toString() === filteredYear;
-  }); 
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <div>
@@ -24,15 +23,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
-        
+        <ExpensesList items={filteredExpenses}/>
       </Card>
     </div>
   );
