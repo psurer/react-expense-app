@@ -28,6 +28,7 @@ const ExpenseItem = (props) => {
     //we use className because class is a reserved word in JS 
     // here we replace hardcoded data with opening and closing curly braces
     // built in method .toISOString is avail on all date objects to output as string
+    <li>
     <Card className='expense-item'>
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
@@ -36,6 +37,7 @@ const ExpenseItem = (props) => {
       </div>
       <button onClick={clickHandler}>Change Title</button>
     </Card>
+    </li>
   );
 }
 

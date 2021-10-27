@@ -1,7 +1,8 @@
 import React from 'react';
 import './NewExpense.css'
 import ExpenseForm from './ExpenseForm';
-// here we render form where user can enter expense data
+// here we render form where user can enter expense data 
+// and we render the ExpenseForm conditionally, in some cases we show a button
 
 const NewExpense = (props) => {
 // here we use the ... spread operator to pull out all the key: value pairs
@@ -15,10 +16,13 @@ const NewExpense = (props) => {
         props.onAddExpense(expenseData);
     };
 
-    return <div className='new-expense'>
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHanlder} />
+    return (
+         <div className='new-expense'>
+            <button>Add New Expense</button>
+            <ExpenseForm onSaveExpenseData={saveExpenseDataHanlder} />
 
     </div>
+    );
 }
 
 export default NewExpense;
