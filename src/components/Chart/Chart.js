@@ -8,17 +8,19 @@ import "./Chart.css";
 // we map every data point to a chartBar
 // we define dataPoint as an object that has a value property
 const Chart = (props) => {
+    const dataPointValues = props.dataPoints.map(dataPoint => dataPoint.value); // here we return an array of numbers
+    const totalMaximum = Math.max(...dataPointValues); //pulling out elements with ...spread operator and adding as stand alone elements to the max Method
   return (
-    <dive className="chart">
+    <div className='chart'>
       {props.dataPoints.map((dataPoint) => (
         <ChartBar
           key={dataPoint.label}
           value={dataPoint.value}
-          maxValue={null}
+          maxValue={totalMaximum}
           label={dataPoint.label}
         />
       ))}
-    </dive>
+    </div>
   );
 };
 
